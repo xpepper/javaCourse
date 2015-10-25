@@ -13,5 +13,4 @@ public class Nave extends Veicolo {
     private boolean galleggia() {
         return true;
     }
-
 }

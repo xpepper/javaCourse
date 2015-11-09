@@ -1,29 +1,27 @@
 package it.phoenixspa.learn.collection;
 
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.List;
 
 import junit.framework.TestCase;
 
-@SuppressWarnings({ "rawtypes", "unchecked" })
 public class ListTest extends TestCase {
 
     public void testListElements() throws Exception {
-        Collection list = new ArrayList();
-        list.add("ABC");
-        list.add(new Integer(10));
+        List<String> strings = new ArrayList<String>();
+        strings.add("ABC");
+        strings.add("XYZ");
 
-        assertEquals(false, list.isEmpty());
+        assertEquals(false, strings.isEmpty());
 
-        int expectedSize = 2;
-        assertEquals(expectedSize, list.size());
+        assertEquals(2, strings.size());
 
-        assertEquals(true, list.contains("ABC"));
-        assertEquals(false, list.contains("AbC"));
+        assertEquals(true, strings.contains("ABC"));
+        assertEquals(false, strings.contains("AbC"));
 
-        assertEquals("ABC", list.iterator().next());
+        assertEquals("ABC", strings.iterator().next());
 
-        for (Object each : list) {
+        for (String each : strings) {
             System.err.println(each);
         }
     }

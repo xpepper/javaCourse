@@ -5,28 +5,26 @@ import java.util.Set;
 
 import junit.framework.TestCase;
 
-@SuppressWarnings({ "rawtypes", "unchecked" })
 public class SetTest extends TestCase {
 
     public void testElements() throws Exception {
-        Set set = new HashSet();
-        set.add(new Integer(10));
-        set.add(new Integer(1));
-        set.add(new Integer(-1));
-        set.add(new Integer(1));
-        set.add(new Integer(10));
+        Set<Integer> numberSet = new HashSet<Integer>();
+        numberSet.add(new Integer(10));
+        numberSet.add(new Integer(1));
+        numberSet.add(new Integer(-1));
+        numberSet.add(new Integer(1));
+        numberSet.add(new Integer(10));
 
-        assertEquals(false, set.isEmpty());
+        assertEquals(false, numberSet.isEmpty());
 
-        int expectedSize = 3;
-        assertEquals(expectedSize, set.size());
+        assertEquals(3, numberSet.size());
 
-        assertEquals(false, set.contains("10"));
-        assertEquals(true, set.contains(1));
+        assertEquals(false, numberSet.contains("10"));
+        assertEquals(true, numberSet.contains(1));
 
-        assertEquals(1, set.iterator().next());
+        assertEquals(new Integer(1), numberSet.iterator().next());
 
-        for (Object each : set) {
+        for (Integer each : numberSet) {
             System.err.println(each);
         }
     }

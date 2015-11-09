@@ -2,15 +2,15 @@ package it.phoenixspa.learn.collection;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import junit.framework.TestCase;
 
-@SuppressWarnings({ "rawtypes", "unchecked" })
 public class MapTest extends TestCase {
 
     public void testElements() throws Exception {
-        Map map = new HashMap();
+        Map<Integer, String> map = new HashMap<Integer, String>();
         map.put(21, "Enrico");
         map.put(3, "Anna");
         map.put(51, "Luca");
@@ -29,12 +29,14 @@ public class MapTest extends TestCase {
         assertEquals(3, map.size());
         assertEquals(false, map.containsValue("Enrico"));
 
-        assertEquals(51, map.keySet().iterator().next());
+        assertEquals(new Integer(51), map.keySet().iterator().next());
         assertEquals("Luca", map.values().iterator().next());
 
-        Set entrySet = map.entrySet();
-        for (Object each : entrySet) {
-            System.err.println(each);
+        Set<Entry<Integer, String>> entrySet = map.entrySet();
+        for (Entry<Integer, String> each : entrySet) {
+            System.err.print(each.getKey());
+            System.err.print("\t => ");
+            System.err.print(each.getValue() + "\n");
         }
     }
 }

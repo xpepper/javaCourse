@@ -13,4 +13,10 @@ public class CarTest extends TestCase {
         Taxable suv = Car.createSuv();
         assertEquals(1500.0, suv.calcolaBollo());
     }
+
+    public void testDataImmatricolazione() throws Exception {
+        Car car = new Car(700);
+        assertTrue(car.dataImmatricolazione().contains("-2015")); //wow terrible test!
+        assertTrue(car.dataImmatricolazione().matches("\\d{2}-\\d{2}-\\d{4}\\s\\d{2}:\\d{2}")); //better... any other improvement?
+    }
 }

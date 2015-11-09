@@ -1,4 +1,4 @@
-package it.phoenixspa.learn;
+package it.phoenixspa.learn.enumeration;
 
 public class Colors {
     public static final String red = "questo è rosso";

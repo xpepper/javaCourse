@@ -2,6 +2,6 @@ package it.phoenixspa.learn;
 
 public interface BolloService {
 
-    double computeBolloFor(int engineDisplacement);
+    double computeBolloFor(int cilindrata);
 
 }

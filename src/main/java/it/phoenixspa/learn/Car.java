@@ -1,22 +1,23 @@
 package it.phoenixspa.learn;
 
-public class Car {
+public class Car extends Veicolo implements Taxable {
     private static final int _1000 = 1000;
-    int engineDisplacement;
+    int cilindrata;
     int currentSpeed;
 
-    public static Car createWithStartingSpeed(int startingSpeed) {
+    public static Taxable createWithStartingSpeed(int startingSpeed) {
         Car car = new Car(_1000);
         car.currentSpeed = startingSpeed;
         return car;
     }
 
-    public static Car createSuv() {
+    public static Taxable createSuv() {
         return new Suv(_1000);
     }
 
-    public Car(int engineDisplacement) {
-        this.engineDisplacement = engineDisplacement;
+    public Car(int cilindrata) {
+        super("car code");
+        this.cilindrata = cilindrata;
         this.currentSpeed = 0;
     }
 
@@ -25,7 +26,13 @@ public class Car {
     }
 
     public Double calcolaBollo() {
-        return engineDisplacement * 0.75;
+        return cilindrata * 0.75;
+    }
+
+    public boolean collauda() {
+        int c = currentSpeed;
+        accelerate(100);
+        return c+100 == currentSpeed;
     }
 
 }

@@ -1,4 +1,4 @@
-package it.phoenixspa.learn;
+package it.phoenixspa.learn.generics;
 
 
 public class ReverseArray<T> {

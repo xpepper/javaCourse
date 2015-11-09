@@ -2,10 +2,14 @@ package it.phoenixspa.learn;
 
 public class Taxi extends Car {
 
-    String license;
+    private String license;
 
-    public Taxi(int engineDisplacement, String license) {
+    public Taxi(int engineDisplacement, String license) throws LicenseException {
         super(engineDisplacement);
+
+        if (license == null || license.trim().length() == 0) {
+            throw new LicenseException("invalid license", 0);
+        }
         this.license = license;
     }
 
@@ -14,10 +18,15 @@ public class Taxi extends Car {
         return super.calcolaBollo() / 2;
     }
 
-    void renewLicense() {
+    public String getLicense() {
+        return license;
+    }
+
+    public void renewLicense() {
         if (license.startsWith("2014")) {
             license = "2015" + license;
         }
     }
+
 
 }

@@ -2,16 +2,18 @@ package it.phoenixspa.learn;
 
 public class CarApp {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws LicenseException {
         int cilindrata = 2000;
-        if (args.length == 1) {
+        String license = "";
+        if (args.length == 2) {
             try {
                 cilindrata = Integer.parseInt(args[0]);
+                license = args[1];
             } catch (NumberFormatException ex) {
                 System.out.println("formato errato");
             }
         }
-        Taxi taxi = new Taxi(cilindrata, "WER78MN");
+        Taxi taxi = new Taxi(cilindrata, license);
         stampaImporto(taxi);
     }
 

@@ -1,11 +1,19 @@
 package it.phoenixspa.learn.objects.auto;
 
-class Auto {
+public class Auto {
     int cilindrata;
-    int velocita;
+    private int velocita;
+
+    public Auto() {
+        this(0);
+    }
+
+    public Auto(int velocità) {
+        velocita = velocità;
+    }
 
     void accelera(int valore) {
-        velocita += valore;
+        this.velocita = getVelocita() + valore;
     }
 
     @Override
@@ -21,16 +29,18 @@ class Auto {
     public String className() {
         return getClass().getName();
     }
-}
 
-class Taxi extends Auto {
-    String licenza;
-
-    Taxi(String licenza) {
-        this.licenza = licenza;
+    public int getVelocita() {
+        return velocita;
     }
 
-    public String licenza() {
-        return "Licenza Taxi: " + licenza;
-    }
 }
+
+class Other {
+    public static void main(String[] args) {
+        Auto auto = new Auto();
+    }
+
+}
+
+

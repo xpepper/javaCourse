@@ -15,13 +15,4 @@ public class Taxi extends Car {
         }
     }
 
-    @Override
-    double calcolaBollo() {
-        return 250;
-    }
-
-    @Override
-    public String librettoDiCircolazione() {
-        return "Taxi, circolazione in centro sempre.\n" + "Con cilindrata " + engineDisplacement + " e bollo in euro " + calcolaBollo();
-    }
 }

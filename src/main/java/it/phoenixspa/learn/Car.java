@@ -1,45 +1,31 @@
 package it.phoenixspa.learn;
 
-public abstract class Car {
-    private static final int DEFAULT_ENGINE_DISPLACEMENT = 1000;
-
+public class Car {
+    private static final int _1000 = 1000;
     int engineDisplacement;
     int currentSpeed;
 
-    private BolloService bolloService;
+    public static Car createWithStartingSpeed(int startingSpeed) {
+        Car car = new Car(_1000);
+        car.currentSpeed = startingSpeed;
+        return car;
+    }
 
-    public Car() {
-        this(DEFAULT_ENGINE_DISPLACEMENT, new AciBolloService());
+    public static Car createSuv() {
+        return new Suv(_1000);
     }
 
     public Car(int engineDisplacement) {
-        this(engineDisplacement, new AciBolloService());
-    }
-
-    public Car(int engineDisplacement, BolloService service) {
         this.engineDisplacement = engineDisplacement;
-        this.bolloService = service;
+        this.currentSpeed = 0;
     }
-
-    public abstract String librettoDiCircolazione();
 
     void accelerate(int speedGain) {
         currentSpeed += speedGain;
     }
 
-    double calcolaBollo() {
-        return bolloService.computeBolloFor(engineDisplacement);
+    public Double calcolaBollo() {
+        return engineDisplacement * 0.75;
     }
 
-}
-
-class Test {
-    public static void main(String[] args) {
-        Car c = new Taxi(900, "ABCXXX91239");
-
-        System.out.println("devi pagare " + c.calcolaBollo() + " euro");
-
-        Suv t = new Suv(1100);
-        System.out.println("devi pagare " + t.calcolaBollo() + " euro");
-    }
 }

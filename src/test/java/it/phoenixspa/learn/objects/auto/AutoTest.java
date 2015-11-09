@@ -7,11 +7,11 @@ public class AutoTest extends TestCase {
     public void testVelocità() throws Exception {
         Auto a = new Auto();
         a.accelera(20);
-        assertEquals(20, a.velocita);
+        assertEquals(20, a.getVelocita());
 
         Taxi t = new Taxi("AB123MK");
         t.accelera(10);
-        assertEquals(10, t.velocita);
+        assertEquals(10, t.getVelocita());
     }
 
     public void testClassName() throws Exception {
@@ -20,19 +20,16 @@ public class AutoTest extends TestCase {
     }
 
     public void testAutoAreEqualsWhenHaveSameCilindrata() throws Exception {
-        Auto auto = new Auto();
+        Auto auto = new Auto(30);
         auto.cilindrata = 1000;
-        auto.velocita = 30;
 
-        Auto sameCilindrata = new Auto();
+        Auto sameCilindrata = new Auto(40);
         sameCilindrata.cilindrata = 1000;
-        sameCilindrata.velocita = 40;
 
         assertTrue(auto.equals(sameCilindrata));
 
-        Auto different = new Auto();
+        Auto different = new Auto(30);
         different.cilindrata = 45643;
-        different.velocita = 30;
 
         assertFalse(auto.equals(different));
     }

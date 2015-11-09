@@ -1,5 +1,9 @@
 package it.phoenixspa.learn.generics;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 
 public class ReverseArray<T> {
 
@@ -10,7 +14,15 @@ public class ReverseArray<T> {
     }
 
     public T[] reverse() {
-        return null;
+        if (array == null) {
+            return null;
+        }
+
+        T[] copy = array.clone();
+        List<T> asList = Arrays.asList(copy);
+        Collections.reverse(asList);
+
+        return asList.toArray(copy);
     }
 
 }

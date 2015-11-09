@@ -28,13 +28,13 @@ public class ReverseArrayTest extends TestCase {
     }
 
     public void testHasNoSideEffectOnInputArray() throws Exception {
-        Integer[] array = new Integer[] { 1, 4, 6, 0 };
+        Integer[] array = new Integer[] { 1, 4, 6, 9 };
         new ReverseArray<Integer>(array).reverse();
 
         assertEquals(new Integer(1), array[0]);
         assertEquals(new Integer(4), array[1]);
         assertEquals(new Integer(6), array[2]);
-        assertEquals(new Integer(0), array[3]);
+        assertEquals(new Integer(9), array[3]);
     }
 
 }

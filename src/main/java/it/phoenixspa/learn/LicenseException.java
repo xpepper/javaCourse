@@ -9,5 +9,7 @@ public class LicenseException extends Exception {
         this.codice = codice;
     }
 
-    public int getCodice() {        return codice;    }
+    public int getCodice() {
+        return codice;
+    }
 }
